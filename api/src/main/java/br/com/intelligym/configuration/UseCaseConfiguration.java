@@ -10,10 +10,7 @@ import br.com.intelligym.repository.UserRepository;
 import br.com.intelligym.service.authentication.TokenService;
 import br.com.intelligym.usecase.authentication.AuthenticationGenerateImpl;
 import br.com.intelligym.usecase.authentication.AuthenticationGenerete;
-import br.com.intelligym.usecase.customer.CreateCustomer;
-import br.com.intelligym.usecase.customer.CreateCustomerImpl;
-import br.com.intelligym.usecase.customer.GetAllCustomer;
-import br.com.intelligym.usecase.customer.GetAllCustomerImpl;
+import br.com.intelligym.usecase.customer.*;
 import br.com.intelligym.usecase.payment.CreatePayment;
 import br.com.intelligym.usecase.payment.CreatePaymentImpl;
 import br.com.intelligym.usecase.trainingprotocol.CreateTrainingProtocol;
@@ -87,6 +84,12 @@ public class UseCaseConfiguration {
     @Bean
     public CreateTrainingProtocol createTrainingProtocol(CustomerRepository customerRepository, UserRepository userRepository, WorkoutSolverApi workoutSolverApi) {
         return new CreateTrainingProtocolImpl(customerRepository, userRepository, workoutSolverApi);
+    }
+
+    @RequestScope
+    @Bean
+    public UpdateCustomer updateCustomer(CustomerRepository customerRepository, GymSolverApi gymSolverApi) {
+        return new UpdateCustomerImpl(customerRepository, gymSolverApi);
     }
 
 }

@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 
 public class GetAllCustomerImpl implements GetAllCustomer {
     private final CustomerRepository customerRepository;
-
     public GetAllCustomerImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
