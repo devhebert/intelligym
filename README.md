@@ -2,17 +2,14 @@
 
 #### Este projeto será desenvolvido com o objetivo de proporcionar uma solução eficiente, intuitiva e inovadora para a administração de academias, visando simplificar o gerenciamento de informações e facilitar a rotina diária dos usuários.
 
-### Regra de Negócio Pay Per Day
-O inovador Plano Pay Per Day foi concebido para assegurar que cada centavo investido pelos alunos não seja desperdiçado. Com esse plano, os participantes pagam um valor fixo e têm a liberdade de utilizar as instalações durante um período de 1 ano. A singularidade desse modelo reside no fato de que o pagamento é efetuado apenas nos dias em que o aluno realmente usufrui da academia.
+#### O Intelligym é uma plataforma composta por múltiplos módulos essenciais, cada um desempenhando um papel crucial:
 
-Essa abordagem oferece uma experiência mais flexível e acessível, permitindo que os usuários construam uma rotina de exercícios que se adapte ao seu estilo de vida. Ao eliminar a sensação de desperdício financeiro, o Plano Pay Per Day busca criar um ambiente propício para a fidelização do cliente. Aqui, os participantes não têm a preocupação de "pagaram e não foram", pois o valor é deduzido apenas nos dias em que aproveitam os serviços da academia.
+* Intelligym - Orquestrador e Núcleo da Aplicação: Este módulo serve como o cérebro central da plataforma, coordenando e gerenciando todas as operações. Link:(https://github.com/devhebert/intelligym).
 
-Ao adotar o Plano Pay Per Day, a academia incentiva a constância e o comprometimento dos alunos com a saúde e bem-estar, proporcionando uma abordagem justa e econômica para a utilização dos serviços oferecidos.
+* Gym Solver API - Microserviço de Gestão de Planos: Aqui reside toda a lógica de negócios relacionada à gestão de planos de academia, garantindo uma administração eficaz e intuitiva. Link:(https://github.com/devhebert/gym-solver-api).
 
-### Regras de Negócio Convencional
-* Pagamento e Renovação de Planos.
-* Cancelamento de Plano.
-* Uso Adequado do Plano Pay Per Day.
-* Alterações nos Serviços.
-* Normas e Regulamentos.
-* Geração de treinos personalizados.
+* Workout Solver API - Microserviço de Gestão de Treinos: Responsável pela gestão de treinos, protocolos e inteligência artificial, este módulo oferece uma abordagem abrangente para otimizar o desempenho do usuário. Link(https://github.com/devhebert/workout-solver-api).
+
+* Payment Solver API - Microserviço de Gestão de Pagamentos: Gerenciando todas as transações financeiras, este módulo garante uma experiência de pagamento segura e conveniente para os usuários. Link:(https://github.com/devhebert/payment-solver-api).
+
+* Messaging Solver API - Microserviço de Comunicação: Encarregado de gerenciar o envio de mensagens, este módulo facilita a comunicação eficiente entre a plataforma e os usuários, garantindo uma experiência interativa e informativa. Link:(https://github.com/devhebert/messaging-solver-api).
