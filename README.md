@@ -14,4 +14,4 @@
 
 * Messaging Solver API - Microserviço de Comunicação: Encarregado de gerenciar o envio de mensagens, este módulo facilita a comunicação eficiente entre a plataforma e os usuários, garantindo uma experiência interativa e informativa. Link:(https://github.com/devhebert/messaging-solver-api).
   
-* Job Solver API - Microserviço de Jobs: Responsável por gerenciar e automatizar tarefas e processos dentro da plataforma IntelliGym. Ele oferece funcionalidades para agendar, monitorar e executar diversas operações de forma automatizada, como processamento em lote de dados, geração de relatórios periódicos, limpeza de bancos de dados, entre outras atividades.
+* Job Solver API - Microserviço de Jobs: Responsável por gerenciar e automatizar tarefas e processos dentro da plataforma IntelliGym. Ele oferece funcionalidades para agendar, monitorar e executar diversas operações de forma automatizada, como processamento em lote de dados, geração de relatórios periódicos, limpeza de bancos de dados, entre outras atividades. Link:(https://github.com/devhebert/job-solver-api).
