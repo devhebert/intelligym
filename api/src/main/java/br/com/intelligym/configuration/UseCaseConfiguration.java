@@ -92,4 +92,10 @@ public class UseCaseConfiguration {
         return new UpdateCustomerImpl(customerRepository, gymSolverApi);
     }
 
+    @RequestScope
+    @Bean
+    public GetCustomerById getCustomer(CustomerRepository customerRepository) {
+        return new GetCustomerByIdImpl(customerRepository);
+    }
+
 }

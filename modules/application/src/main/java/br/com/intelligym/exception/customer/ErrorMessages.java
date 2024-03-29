@@ -18,4 +18,6 @@ public class ErrorMessages {
     public static final String INVALID_EMAIL = "Email inválido";
     public static final String INVALID_PHONE = "Telefone inválido";
     public static final String INVALID_PLAN = "Plano inválido";
+    public static final String CUSTOMER_NOT_FOUND = "Cliente não encontrado";
+    public static final String INTERNAL_ERROR = "Algo deu errado ao localizar o cliente, tente novamente mais tarde";
 }
