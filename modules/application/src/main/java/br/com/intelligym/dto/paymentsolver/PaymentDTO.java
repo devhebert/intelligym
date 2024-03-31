@@ -2,8 +2,7 @@ package br.com.intelligym.dto.paymentsolver;
 
 import br.com.intelligym.model.enums.PaymentType;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
 import java.util.UUID;
 
-public record PaymentDTO(UUID customerId, UUID planId, PaymentType paymentType, double value, String description, LocalDateTime paymentDate, Boolean isPaid) {
-}
+public record PaymentDTO(UUID id, UUID customerId, UUID planId, PaymentType paymentType, BigDecimal value, String description) {}

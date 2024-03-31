@@ -12,10 +12,7 @@ import br.com.intelligym.service.authentication.TokenService;
 import br.com.intelligym.usecase.authentication.AuthenticationGenerateImpl;
 import br.com.intelligym.usecase.authentication.AuthenticationGenerete;
 import br.com.intelligym.usecase.customer.*;
-import br.com.intelligym.usecase.payment.CreatePayment;
-import br.com.intelligym.usecase.payment.CreatePaymentImpl;
-import br.com.intelligym.usecase.payment.GetAllPayment;
-import br.com.intelligym.usecase.payment.GetAllPaymentImpl;
+import br.com.intelligym.usecase.payment.*;
 import br.com.intelligym.usecase.trainingprotocol.CreateTrainingProtocol;
 import br.com.intelligym.usecase.trainingprotocol.CreateTrainingProtocolImpl;
 import br.com.intelligym.usecase.user.*;
@@ -105,6 +102,12 @@ public class UseCaseConfiguration {
     @Bean
     public GetAllPayment getAllPayment(PaymentSolverApi paymentSolverApi, CustomerRepository customerRepository) {
         return new GetAllPaymentImpl(paymentSolverApi, customerRepository);
+    }
+
+    @RequestScope
+    @Bean
+    public GetPaymentById getPaymentById(PaymentSolverApi paymentSolverApi) {
+        return new GetPaymentByIdImpl(paymentSolverApi);
     }
 
 }
