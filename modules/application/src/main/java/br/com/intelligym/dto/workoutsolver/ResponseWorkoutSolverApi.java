@@ -1,4 +1,4 @@
-package br.com.intelligym.dto.trainingprotocol;
+package br.com.intelligym.dto.workoutsolver;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

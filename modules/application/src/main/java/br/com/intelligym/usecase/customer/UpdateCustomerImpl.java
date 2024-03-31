@@ -1,7 +1,7 @@
 package br.com.intelligym.usecase.customer;
 
-import br.com.intelligym.client.GymSolverApi;
-import br.com.intelligym.client.PlanRequest;
+import br.com.intelligym.client.gymsolver.GymSolverApi;
+import br.com.intelligym.client.gymsolver.PlanRequest;
 import br.com.intelligym.dto.gymsolver.ResponseGymSolverApi;
 import br.com.intelligym.exception.payment.ErrorMessages;
 import br.com.intelligym.model.customer.Customer;
@@ -41,7 +41,7 @@ public class UpdateCustomerImpl implements UpdateCustomer {
 
                         if (!customer.getPlan().equals(inputPort.plan())) {
                             PlanRequest planRequest = new PlanRequest(customer.getId(), inputPort.plan());
-                            ResponseGymSolverApi savedPlan = this.gymSolverApi.getPlan(planRequest);
+                            ResponseGymSolverApi savedPlan = this.gymSolverApi.createPlan(planRequest);
 
                             if (savedPlan != null) {
                                 UUID savedPlanId = savedPlan.response();

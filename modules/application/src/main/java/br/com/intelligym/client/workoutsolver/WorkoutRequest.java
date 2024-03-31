@@ -1,4 +1,4 @@
-package br.com.intelligym.client;
+package br.com.intelligym.client.workoutsolver;
 
 import br.com.intelligym.model.enums.TrainingType;
 import br.com.intelligym.model.enums.Variant;

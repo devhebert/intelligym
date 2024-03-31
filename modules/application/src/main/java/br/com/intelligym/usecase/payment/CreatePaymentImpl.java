@@ -1,7 +1,9 @@
 package br.com.intelligym.usecase.payment;
 
-import br.com.intelligym.client.PaymentRequest;
-import br.com.intelligym.client.PaymentSolverApi;
+import br.com.intelligym.client.messaginsolver.MessagingRequest;
+import br.com.intelligym.client.messaginsolver.MessagingSolverApi;
+import br.com.intelligym.client.paymentsolver.PaymentRequest;
+import br.com.intelligym.client.paymentsolver.PaymentSolverApi;
 import br.com.intelligym.dto.paymentsolver.ResponsePaymentSolverApi;
 import br.com.intelligym.exception.payment.ErrorMessages;
 import br.com.intelligym.model.customer.Customer;
@@ -13,16 +15,20 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 public class CreatePaymentImpl implements CreatePayment {
     private final Logger logger = LoggerFactory.getLogger(CreateCustomerImpl.class);
     private final CustomerRepository customerRepository;
     private final PaymentSolverApi paymentSolverApi;
+    private final MessagingSolverApi messagingSolverApi;
 
-    public CreatePaymentImpl(CustomerRepository customerRepository, PaymentSolverApi paymentSolverApi) {
+    public CreatePaymentImpl(CustomerRepository customerRepository, PaymentSolverApi paymentSolverApi, MessagingSolverApi messagingSolverApi) {
         this.customerRepository = customerRepository;
         this.paymentSolverApi = paymentSolverApi;
+        this.messagingSolverApi = messagingSolverApi;
     }
 
     @Transactional
@@ -50,6 +56,9 @@ public class CreatePaymentImpl implements CreatePayment {
 
                 this.activateCustomer(customer);
 
+                Map<String, Object> paymentData = this.getPaymentRequestMap(input, customer);
+                this.messagingSolverApi.sendMessage(new MessagingRequest(customer.getId(), customer.getContact().getEmail(), "PAYMENT", paymentData));
+
                 return new OutputPort.Ok(processPayment.response());
             } catch (Exception e) {
                 logger.error("Error processing payment", e);
@@ -73,5 +82,14 @@ public class CreatePaymentImpl implements CreatePayment {
         if (inputPort.value() == null) return new OutputPort.Error(ErrorMessages.VALUE_REQUIRED);
 
         return null;
+    }
+
+    private Map<String, Object> getPaymentRequestMap(InputPort inputPort, Customer customer) {
+        Map<String, Object> paymentRequestMap = new HashMap<>();
+        paymentRequestMap.put("customerName", customer.getName());
+        paymentRequestMap.put("paymentType", inputPort.paymentType());
+        paymentRequestMap.put("value", inputPort.value());
+        paymentRequestMap.put("description", inputPort.description());
+        return paymentRequestMap;
     }
 }

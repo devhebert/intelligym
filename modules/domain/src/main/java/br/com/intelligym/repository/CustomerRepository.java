@@ -11,4 +11,6 @@ public interface CustomerRepository {
     List<Customer> all();
     Optional<Customer> findById(UUID id);
     void deleteById(UUID id);
+
+    List<Customer> findAll();
 }

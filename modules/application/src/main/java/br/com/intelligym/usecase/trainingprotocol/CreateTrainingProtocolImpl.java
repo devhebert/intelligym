@@ -1,8 +1,8 @@
 package br.com.intelligym.usecase.trainingprotocol;
 
-import br.com.intelligym.client.WorkoutRequest;
-import br.com.intelligym.client.WorkoutSolverApi;
-import br.com.intelligym.dto.trainingprotocol.ResponseWorkoutSolverApi;
+import br.com.intelligym.client.workoutsolver.WorkoutRequest;
+import br.com.intelligym.client.workoutsolver.WorkoutSolverApi;
+import br.com.intelligym.dto.workoutsolver.ResponseWorkoutSolverApi;
 import br.com.intelligym.model.customer.Customer;
 import br.com.intelligym.model.user.User;
 import br.com.intelligym.repository.CustomerRepository;

@@ -1,10 +1,11 @@
 package br.com.intelligym.configuration;
 
 
-import br.com.intelligym.client.GymSolverApi;
-import br.com.intelligym.client.MessagingSolverApi;
-import br.com.intelligym.client.PaymentSolverApi;
-import br.com.intelligym.client.WorkoutSolverApi;
+import br.com.intelligym.client.gymsolver.GymSolverApi;
+import br.com.intelligym.client.messaginsolver.MessagingSolverApi;
+import br.com.intelligym.client.paymentsolver.PaymentSolverApi;
+import br.com.intelligym.client.workoutsolver.WorkoutSolverApi;
+import br.com.intelligym.mapper.customer.CustomerMapper;
 import br.com.intelligym.repository.CustomerRepository;
 import br.com.intelligym.repository.UserRepository;
 import br.com.intelligym.service.authentication.TokenService;
@@ -13,6 +14,8 @@ import br.com.intelligym.usecase.authentication.AuthenticationGenerete;
 import br.com.intelligym.usecase.customer.*;
 import br.com.intelligym.usecase.payment.CreatePayment;
 import br.com.intelligym.usecase.payment.CreatePaymentImpl;
+import br.com.intelligym.usecase.payment.GetAllPayment;
+import br.com.intelligym.usecase.payment.GetAllPaymentImpl;
 import br.com.intelligym.usecase.trainingprotocol.CreateTrainingProtocol;
 import br.com.intelligym.usecase.trainingprotocol.CreateTrainingProtocolImpl;
 import br.com.intelligym.usecase.user.*;
@@ -76,8 +79,8 @@ public class UseCaseConfiguration {
 
     @RequestScope
     @Bean
-    public CreatePayment createPayment(CustomerRepository customerRepository, PaymentSolverApi paymentSolverApi) {
-        return new CreatePaymentImpl(customerRepository, paymentSolverApi);
+    public CreatePayment createPayment(CustomerRepository customerRepository, PaymentSolverApi paymentSolverApi, MessagingSolverApi messagingSolverApi) {
+        return new CreatePaymentImpl(customerRepository, paymentSolverApi, messagingSolverApi);
     }
 
     @RequestScope
@@ -96,6 +99,12 @@ public class UseCaseConfiguration {
     @Bean
     public GetCustomerById getCustomer(CustomerRepository customerRepository) {
         return new GetCustomerByIdImpl(customerRepository);
+    }
+
+    @RequestScope
+    @Bean
+    public GetAllPayment getAllPayment(PaymentSolverApi paymentSolverApi, CustomerRepository customerRepository) {
+        return new GetAllPaymentImpl(paymentSolverApi, customerRepository);
     }
 
 }

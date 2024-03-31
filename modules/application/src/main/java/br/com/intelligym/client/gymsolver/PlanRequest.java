@@ -1,4 +1,4 @@
-package br.com.intelligym.client;
+package br.com.intelligym.client.gymsolver;
 
 import br.com.intelligym.model.enums.Plan;
 

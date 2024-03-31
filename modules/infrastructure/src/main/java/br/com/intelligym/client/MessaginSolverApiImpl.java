@@ -1,5 +1,7 @@
 package br.com.intelligym.client;
 
+import br.com.intelligym.client.messaginsolver.MessagingRequest;
+import br.com.intelligym.client.messaginsolver.MessagingSolverApi;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 

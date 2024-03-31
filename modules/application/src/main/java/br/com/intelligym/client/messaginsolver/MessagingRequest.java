@@ -1,4 +1,4 @@
-package br.com.intelligym.client;
+package br.com.intelligym.client.messaginsolver;
 
 import java.io.Serializable;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package br.com.intelligym.client;
+package br.com.intelligym.client.paymentsolver;
 
 import br.com.intelligym.model.enums.PaymentType;
 

@@ -1,9 +1,9 @@
 package br.com.intelligym.usecase.customer;
 
-import br.com.intelligym.client.GymSolverApi;
-import br.com.intelligym.client.MessagingRequest;
-import br.com.intelligym.client.MessagingSolverApi;
-import br.com.intelligym.client.PlanRequest;
+import br.com.intelligym.client.gymsolver.GymSolverApi;
+import br.com.intelligym.client.messaginsolver.MessagingRequest;
+import br.com.intelligym.client.messaginsolver.MessagingSolverApi;
+import br.com.intelligym.client.gymsolver.PlanRequest;
 import br.com.intelligym.dto.gymsolver.ResponseGymSolverApi;
 import br.com.intelligym.exception.customer.ErrorMessages;
 import br.com.intelligym.model.customer.Address;
@@ -12,7 +12,6 @@ import br.com.intelligym.model.customer.Customer;
 import br.com.intelligym.model.enums.Plan;
 import br.com.intelligym.repository.CustomerRepository;
 
-import jakarta.annotation.PreDestroy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,7 +50,7 @@ public class CreateCustomerImpl implements CreateCustomer {
             PlanRequest planRequest = new PlanRequest(savedCustomer.getId(), inputPort.plan());
             UUID savedPlanId = null;
             try {
-                Object savedPlan = this.gymSolverApi.getPlan(planRequest);
+                Object savedPlan = this.gymSolverApi.createPlan(planRequest);
                 if (savedPlan instanceof OutputPort.Error) return (OutputPort.Error) savedPlan;
                 if (savedPlan != null) {
                     ResponseGymSolverApi responseGymSolverApi = (ResponseGymSolverApi) savedPlan;
